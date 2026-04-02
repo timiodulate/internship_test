@@ -37,7 +37,7 @@ export function useTransactions() {
 
 			const data = await res.json();
 			const mapped: TransactionRecord[] = data.map((post: RawPost) => ({
-				id: post.id,
+				transactionId: post.id,
 				accountId: post.userId,
 				reference: post.title,
 				description: post.body,
