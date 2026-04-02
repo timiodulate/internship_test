@@ -1,4 +1,4 @@
-const SearchBar = ({
+export const SearchBar = ({
 	value,
 	onChange,
 }: {
@@ -6,9 +6,9 @@ const SearchBar = ({
 	onChange: (newValue: string) => void;
 }) => {
 	return (
-		<div className="relative flex items-center">
+		<div className="relative flex items-center flex-1 min-w-[200px]">
 			{/* Search Icon */}
-			<div className="absolute left-3 text-gray-400 pointer-events-none">
+			<div className="absolute left-3 text-[var(--text-tertiary)] pointer-events-none">
 				<svg
 					width="20"
 					height="20"
@@ -31,7 +31,7 @@ const SearchBar = ({
 				value={value}
 				onChange={(e) => onChange(e.target.value)}
 				aria-label="Search transactions"
-				className="w-full pl-10 pr-10 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+				className="w-full px-9 py-[9px] border border-[var(--border)] rounded-lg bg-[var(--bg-surface)] text-[var(--text-primary)] text-[13.5px] outline-none transition-[border,box-shadow] focus:border-[var(--accent)] focus:ring-3 focus:ring-[var(--focus-ring)] placeholder:text-[var(--text-tertiary)]"
 			/>
 
 			{/* Clear Button */}
@@ -39,7 +39,7 @@ const SearchBar = ({
 				<button
 					onClick={() => onChange("")}
 					aria-label="Clear search"
-					className="absolute right-3 text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded p-1 transition-colors"
+					className="absolute right-2 flex items-center justify-center w-[22px] h-[22px] rounded border-0 bg-[var(--bg-muted)] text-[var(--text-secondary)] transition-all hover:bg-[var(--border)] hover:text-[var(--text-primary)]"
 				>
 					<svg
 						width="20"

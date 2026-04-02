@@ -1,26 +1,98 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+	--background: #ffffff;
+	--foreground: #171717;
 }
 
+/* ─── Theme tokens ─── */
+/* .light { */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--font-dm-sans: var(--font-dm-sans);
+	--font-jetbrains-mono: var(--font-jetbrains-mono);
+}
+/* } */
+
+:root {
+	--bg-root: #f4f2ee;
+	--bg-surface: #ffffff;
+	--bg-surface-hover: #fafaf8;
+	--bg-surface-active: #f0eee8;
+	--bg-muted: #eae8e2;
+	--bg-skeleton: #e8e6e0;
+	--text-primary: #1a1917;
+	--text-secondary: #6b6860;
+	--text-tertiary: #9e9a90;
+	--border: #ddd9d0;
+	--border-active: #1a1917;
+	--accent: #d45a2a;
+	--accent-hover: #c04e22;
+	--accent-subtle: #fef3ee;
+	--badge-bg: #eae8e2;
+	--badge-text: #6b6860;
+	--focus-ring: rgba(212, 90, 42, 0.35);
+	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+	--shadow-md: 0 2px 8px rgba(0, 0, 0, 0.06);
+	--shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+	/* @media (prefers-color-scheme: dark) { */
+	/* :root { */
+	--background: #0a0a0a;
+	--foreground: #ededed;
+
+	--bg-root: #111110;
+	--bg-surface: #1c1c1a;
+	--bg-surface-hover: #232320;
+	--bg-surface-active: #2a2a27;
+	--bg-muted: #232320;
+	--bg-skeleton: #2a2a27;
+	--text-primary: #ededea;
+	--text-secondary: #a09d94;
+	--text-tertiary: #6b6860;
+	--border: #2e2e2b;
+	--border-active: #ededea;
+	--accent: #e8764a;
+	--accent-hover: #f08a60;
+	--accent-subtle: #2a1f18;
+	--badge-bg: #2a2a27;
+	--badge-text: #a09d94;
+	--focus-ring: rgba(232, 118, 74, 0.3);
+	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+	--shadow-md: 0 2px 8px rgba(0, 0, 0, 0.3);
+	--shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+	/* } */
+	/* } */
 }
+
+/* ─── Reset & base ─── */
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+	font-family: "DM Sans", system-ui, sans-serif;
+	background: var(--bg-root);
+	color: var(--text-primary);
+	min-height: 100vh;
+	padding: 0;
+	margin: 0;
+	transition:
+		background 0.3s,
+		color 0.3s;
+}
+body * {
+	box-sizing: border-box;
+	/* margin: 0; */
+	/* padding: 0; */
+}
+body button {
+	font-family: inherit;
+	cursor: pointer;
+}
+body input,
+body select {
+	font-family: inherit;
 }
